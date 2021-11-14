@@ -1,0 +1,35 @@
+{
+  "Status": "200",
+  "Host": "localhost",
+  "Port": "8080",
+  "Endpoints": [
+    {
+      "Endpoint": "/get-all-keys",
+      "Method": "GET",
+      "Description": "Endpoint that allows us to get all key data",
+      "How to Use": "It can be used by sending a get request to the endpoint.",
+      "Example Request": "curl http://localhost:8080/get-all-keys"
+    },
+    {
+      "Endpoint": "/get",
+      "Method": "GET",
+      "Description": "Endpoint that allows us to get all key data",
+      "How to Use": "It can be used by sending a get request to the endpoint. You must use query param like `?key=foo`",
+      "Example Request": "curl http://localhost:8080/get?key=foo"
+    },
+    {
+      "Endpoint": "/set",
+      "Method": "POST",
+      "Description": "Endpoint that allows us to set new key data",
+      "How to Use": "It can be used by sending a post request to the endpoint with a json body. Example: `{Key`:`foo`, `Value`:`bar`}`",
+      "Example Request": "curl -X POST  http://localhost:8080/set  -H 'Content-Type: application/json' -d '{\"key\":\"foo4\",\"value\":\"bar4\"}'"
+    },
+    {
+      "Endpoint": "/delete-all",
+      "Method": "GET",
+      "Description": "Endpoint that allows us to delete all data",
+      "How to Use": "It can be used by sending a get request to the endpoint.",
+      "Example Request": "curl http://localhost:8080/delete-all"
+    }
+  ]
+}
