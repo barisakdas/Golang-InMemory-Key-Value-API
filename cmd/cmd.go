@@ -3,14 +3,16 @@ package cmd
 import (
 	"net/http"
 	. "ys/Handlers"
+	. "ys/Helpers"
 )
 
 func Run() {
 	http.HandleFunc("/", GetAllEndpoints)
-	http.HandleFunc("/get-all-keys", GetAllKeys)
-	http.HandleFunc("/get", GetKey)
-	http.HandleFunc("/set", SetKeys)
-	http.HandleFunc("/delete-all", DeleteAllKeys)
+	http.HandleFunc("/get-access-token", GetAccessToken)
+	http.Handle("/get-all-keys", IsAuthorized(GetAllKeys))
+	http.Handle("/get", IsAuthorized(GetKey))
+	http.Handle("/set", IsAuthorized(SetKeys))
+	http.Handle("/delete-all", IsAuthorized(DeleteAllKeys))
 
 	http.ListenAndServe(":8080", nil)
 }
